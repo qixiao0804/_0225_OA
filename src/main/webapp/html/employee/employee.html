@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<title></title>
+	<meta charset="UTF-8">
+	<meta http-equiv="pragma" content="no-cache" />
+	<meta http-equiv="cache-control" content="no-cache" />
+	<meta http-equiv="expires" content="0" />    
+	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3" />
+	<meta http-equiv="description" content="This is my page" />
+	<link href="../../css/css.css" type="text/css" rel="stylesheet" />
+	<link rel="stylesheet" type="text/css" href="../../js/ligerUI/skins/Aqua/css/ligerui-dialog.css"/>
+	<link href="../../js/ligerUI/skins/ligerui-icons.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="/js/jquery-1.11.0.js"></script>
+    <script type="text/javascript" src="/js/jquery-migrate-1.2.1.js"></script>
+	<script src="../../js/ligerUI/js/core/base.js" type="text/javascript"></script>
+	<script src="../../js/ligerUI/js/plugins/ligerDrag.js" type="text/javascript"></script> 
+	<script src="../../js/ligerUI/js/plugins/ligerDialog.js" type="text/javascript"></script>
+<!--	<script src="../../js/ligerUI/js/plugins/ligerResizable.jss" type="text/javascript"></script>-->
+	<link href="../../css/pager.css" type="text/css" rel="stylesheet" />
+		<link rel="stylesheet" href="/js/layui/css/layui.css"  media="all">
+
+	<script type="text/javascript">
+
+	</script>
+</head>
+<body>
+	<!-- 导航 -->
+	<table width="100%" border="0" cellpadding="0" cellspacing="0">
+	  <tr><td height="10"></td></tr>
+	  <tr>
+	    <td width="15" height="32"><img src="../../images/main_locleft.gif" width="15" height="32"></td>
+		<td class="main_locbg font2"><img src="../../images/pointer.gif">&nbsp;&nbsp;&nbsp;当前位置：员工管理 &gt; 员工查询</td>
+		<td width="15" height="32"><img src="../../images/main_locright.gif" width="15" height="32"></td>
+	  </tr>
+	</table>
+	
+	<table width="100%" height="90%" border="0" cellpadding="5" cellspacing="0" class="main_tabbor">
+	  <!-- 查询区  -->
+	  <tr valign="top">
+	    <td height="30">
+		  <table width="100%" border="0" cellpadding="0" cellspacing="10" class="main_tab">
+		    <tr>
+			  <td class="fftd">
+			  	<form name="empform" method="post" id="empform" action="../../employee/selectEmployee">
+				    <table width="100%" border="0" cellpadding="0" cellspacing="0">
+					  <tr>
+					    <td class="font3">
+					    	职位：
+							    <select name="job_id" style="width:143px;">
+
+
+					    		</select>
+					    	姓名：<input type="text" name="name">
+					    	身份证号码：<input type="text" name="cardId" maxlength="18">
+					    </td>
+					  </tr>
+					  <tr>
+					    <td class="font3">
+					    	性别：
+					    		<select name="sex" style="width:143px;">
+					    			<option value="0">--请选择性别--</option>
+					    			<option value="1">男</option>
+					    			<option value="2">女</option>
+					    		</select>
+					    	手机：<input type="text" name="phone">
+					    	所属部门：<select  name="dept_id" style="width:100px;">
+
+
+							</select>&nbsp;
+					    	<input type="button" id="find" value="搜索"/>
+					    	<input id="del" type="button" value="删除"/>
+					    </td>
+					  </tr>
+					</table>
+				</form>
+			  </td>
+			</tr>
+		  </table>
+		</td>
+	  </tr>
+
+	</table>
+	<div style="height:10px;"></div>
+
+
+
+
+		<table class="layui-table" lay-data="{ height:330, url:'/em/findByAll.do', page:true, id:'idTest',limit:5,limits:[5,10,15]}" lay-filter="demo">
+
+		<thead>
+		<tr>
+			<th lay-data="{type:'checkbox', fixed: 'left'}"></th>
+			<th lay-data="{field:'id', sort: true, fixed: true,hide:true}">ID</th>
+			<th lay-data="{field:'name'}">姓名</th>
+			<th lay-data="{field:'sex', sort: true}">性别</th>
+			<th lay-data="{field:'tel', sort: true}">手机号码</th>
+			<th lay-data="{field:'email', sort: true}">邮箱</th>
+			<th lay-data="{field:'jname', sort: true}">职位</th>
+			<th lay-data="{field:'education', sort: true}">学历</th>
+			<th lay-data="{field:'cardId', sort: true}">身份证号码</th>
+			<th lay-data="{field:'dname', sort: true}">部门</th>
+			<th lay-data="{field:'address', sort: true}">联系地址</th>
+			<th lay-data="{field:'createDate', sort: true}">建档日期</th>
+			<th lay-data="{field:'postCode', sort: true,hide:true}">邮政编码</th>
+
+			<th lay-data="{field:'qqNum', sort: true, fixed: true,hide:true}">QQ号</th>
+			<th lay-data="{field:'party', sort: true, fixed: true,hide:true}">政治面貌</th>
+			<th lay-data="{field:'birthday', sort: true, fixed: true,hide:true}">生日</th>
+			<th lay-data="{field:'race', sort: true, fixed: true,hide:true}">民族</th>
+			<th lay-data="{field:'speciality', sort: true, fixed: true,hide:true}">专业</th>
+			<th lay-data="{field:'hobby', sort: true, fixed: true,hide:true}">爱好</th>
+			<th lay-data="{field:'remark', sort: true, fixed: true,hide:true}">备注</th>
+			<th lay-data="{field:'phone', sort: true, fixed: true,hide:true}">电话</th>
+
+
+			<th lay-data="{fixed: 'right', width:178, align:'center', toolbar: '#barDemo'}">操作</th>
+		</tr>
+		</thead>
+	</table>
+
+
+	<script src="/js/layui/layui.all.js" charset="utf-8"></script>
+
+	<script type="text/html" id="barDemo">
+		<a class="layui-btn layui-btn-xs" lay-event="edit" >编辑</a>
+		<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+	</script>
+
+
+	<script>
+
+
+
+
+
+		layui.use('table', function(){
+			var table = layui.table;
+			//监听表格复选框选择
+			table.on('checkbox(demo)', function(obj){
+				var data = obj.data.id;
+				var idList = [];
+				idList.push(data)
+				$("#del").on("click", function () {
+					if (idList != '') {
+						$.ajax({
+							url: '/em/removeByAll.do',
+							type: 'post',
+							dataType: 'json',
+							data: "sID=" + idList,
+							success: function (rec) {
+								if (rec.code === 0) {
+									layer.msg('删除成功');
+									table.reload('idTest', {});
+								} else {
+									layer.msg('删除失败');
+								}
+							},
+							'error': function () {
+								layer.msg('系统错误');
+							}
+						})
+					} else {
+						layer.tips('请选择需要删除的行', $('#batchDel'), {
+							tips: [3, '#5fb878']
+						})
+					}
+				})
+			});
+
+			//监听工具条
+			table.on('tool(demo)', function(obj){
+				var data = obj.data;
+				if(obj.event === 'detail'){
+					layer.msg('ID：'+ data.id + ' 的查看操作');
+				} else if(obj.event === 'del'){
+					layer.confirm('真的删除行么', function(index){
+						$.ajax({
+							url:"/em/removeByEmp.do",
+							data:{
+								id:data.id,
+							},
+							dataType:"json",
+							type:"post",
+							success:function (rec) {
+								if(rec.code==0){
+									alert("删除成功")
+									location.href="/html/employee/employee.html"
+								}else {
+									alert("删除失败")
+									location.href="/html/employee/employee.html"
+								}
+							}
+						});
+					});
+				} else if(obj.event === 'edit'){
+					location.href="/html/employee/showUpdateEmployee.html?id="+data.id+"&name="+data.name+"&sex="
+							+data.sex+"&tel="+data.tel+"&email="+data.email+"&name="+data.name+"&education="+data.education
+							+"&cardId="+data.cardId+"&name="+data.name+"&address="+data.address+"&createDate="+data.createDate+"&qqNum="+data.qqNum+"&party="
+							+data.party+"&birthday="+data.birthday+"&race="+data.race+"&speciality="+data.speciality+"&hobby="+data.hobby
+							+"&remark="+data.remark+"&phone="+data.phone+"&postCode="+data.postCode
+				}
+			});
+
+
+
+			//工具栏事件
+			table.on('toolbar(test)', function(obj){
+				var checkStatus = table.checkStatus(obj.config.id);
+				switch(obj.event){
+					case 'getCheckData':
+						var data = checkStatus.data;
+						layer.alert(JSON.stringify(data));
+						break;
+					case 'getCheckLength':
+						var data = checkStatus.data;
+						layer.msg('选中了：'+ data.length + ' 个');
+						break;
+					case 'isAll':
+						layer.msg(checkStatus.isAll ? '全选': '未全选')
+						break;
+				};
+			});
+
+			$.ajax({
+				url:"/job/findJob.do",
+				type:"post",
+				dataType:"json",
+				data:{
+					page:0,
+					limit:0,
+				},
+				success:function (r) {
+					var data = r.data;
+					var str="<option value='0' >--职位选择--</option>";
+					for (var i in data) {
+						str+="<option value="+data[i].id+">"+data[i].name+"</option>"
+					}
+					$("select[name='job_id']").html(str)
+
+				}
+			})
+
+
+			$.ajax({
+				url:"/depart/findDep.do",
+				type:"post",
+				dataType:"json",
+				data:{
+					page:0,
+					limit:0,
+				},
+				success:function (r) {
+					var data = r.data;
+					var str="<option value='0' >--部门选择--</option>";
+					for (var i in data) {
+						str+="<option value="+data[i].id+">"+data[i].name+"</option>"
+					}
+					$("select[name='dept_id']").html(str)
+
+				}
+			})
+
+
+
+
+
+			$("#find").on("click",function () {
+				var name = $("input[name='name']").val();
+				var sex = $("select[name='sex']").val();
+				var tel = $("input[name='phone']").val();
+				var did = $("select[name='dept_id']").val();
+				var cardId = $("input[name='cardId']").val();
+				var jid = $("select[name='job_id']").val();
+				table.reload('idTest', {
+					url: '/em/findByAll.do'
+					,where: {
+						name:name,
+						sex:sex,
+						tel:tel,
+						did:did,
+						cardId:cardId,
+						jid:jid,
+					} //设定异步数据接口的额外参数
+					//,height: 300
+				});
+			})
+
+		});
+
+</script>
+</body>
+</html>
